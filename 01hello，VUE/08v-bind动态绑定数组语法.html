@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .isRed{
+            color: red;
+        }
+        .isUnderLine{
+            text-decoration: underline;
+        }
+        .g{
+            color:green
+        }
+        .i{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <!-- 对象语法 绑定属性可以使用methods中定义的方法 -->
+    <div id="duixiang">
+        <p :class="getClass()">{{msg}}</p>
+    </div>
+    <!-- 数组语法 :class = "[arr[0],arr[1]...]" -->
+    <div id="shuzuyufa">
+        <h1 :class="getClasses()">{{msgs}}</h1>
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el:"#duixiang",
+            data:{
+                msg:'对象语法',
+                isRed:true,
+                isUnderLine:true
+            },
+            methods:{
+                getClass:function(){
+                    return {isRed:this.isRed,isUnderLine:this.isUnderLine}
+                }
+            }
+        });
+        const item = new Vue({
+            el:'#shuzuyufa',
+            data:{
+                msgs:'数组对象',
+                // 后台返回的数据
+                green:'g',
+                inline:'i'
+            },
+            methods:{
+                getClasses:function(){
+                    return [this.green,this.inline];
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve('aaa')
+        },1000)
+    }).then(res =>{
+        console.log(res + '第一层处理');
+        return res +'111'
+    }).then(res =>{
+        console.log(res + '第二层处理');
+        return res +'222'
+    })
+</script>
+</html>

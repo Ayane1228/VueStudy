@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 直接拼接 语法过于繁琐-->
+        <h1>{{firstName}} {{secondName}}</h1>
+        <!-- 通过methods方式 多次使用会多次调用函数-->
+        <h1>{{getfullName()}}</h1>
+        <h1>{{getfullName()}}</h1>
+        <h1>{{getfullName()}}</h1>
+        <h1>{{getfullName()}}</h1>
+        <h1>{{getfullName()}}</h1>
+        <h1>{{getfullName()}}</h1>
+        <!-- 通过computed方式 常用 多次使用只会调用一次函数 性能更高 内部有缓存-->
+        <h1>{{fullName}}</h1>
+        <h1>{{fullName}}</h1>
+        <h1>{{fullName}}</h1>
+        <h1>{{fullName}}</h1>
+        <h1>{{fullName}}</h1>
+        <h1>{{fullName}}</h1>
+        <h1>{{fullName}}</h1>
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{ 
+                firstName:'Sakura',
+                secondName:'Ayane'
+            },
+            methods: {
+                getfullName:function(){
+                    console.log("getfullName");
+                    return this.firstName + ' ' + this.secondName;
+                }
+            },
+            computed:{
+                fullName:function(){
+                    console.log("fullName");
+                    return this.firstName + " " + this.secondName;
+                }
+            }
+        })
+    </script>
+   
+</body>
+</html>

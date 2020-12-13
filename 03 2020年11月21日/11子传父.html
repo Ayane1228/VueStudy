@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!-- 父组件模板 -->
+<div id="app">
+    <!-- 在父组件调用子组件的时候监听这个自定义事件 -->
+    <!-- 在父组件的methods中调用这个事件（fatherevent） -->
+    <cpn @emitclick='fatherevent'></cpn>
+</div>
+
+<!-- 子组件模板 -->
+<template id="cpn">
+  <div>
+    <button v-for="item in categories" @click='cpnclick(item)'>{{item.name}}</button>
+    <br>
+  </div>
+</template>
+
+<script src="../01hello，VUE/vue.min.js"></script>
+<script>
+  // 父传子: props
+  const cpn = {
+    template: '#cpn', 
+    data() {
+      return {
+          categories:[
+              {id:1,name:'热门推荐'},
+              {id:2,name:'手机'},
+              {id:3,name:'电脑办公'}
+          ]
+      }
+    },
+    methods: {
+        // 子组件中定义一个点击事件
+        cpnclick(item){
+            // 点击之后发射到父组件（$emit)，然后到父组件模板中监听这个自定义事件（itemclick）
+            this.$emit('emitclick',item);
+        }
+    }
+  }
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+
+    },
+    components: {
+      cpn
+    },
+    methods:{
+        //接受子组件的数据
+        fatherevent(item){
+            console.log("父组件已接收到子组件的事件" ,item);
+        }
+    }
+  })
+</script>
+
+</body>
+</html>

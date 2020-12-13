@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        v-blind动态绑定样式
+     -->
+     <div id="app">
+         <!-- <p :style={key(属性名)： value（属性值）}>{{msg}</p> -->
+         <!-- 属性值不加'' Vue会认为这是一个对象会去解析（data中找这个对象），加''指一个字符串 -->
+         <p :style="{fontSize: '50px'}">{{msg}}</p>
+        <!-- 直接使用fontSize对象 -->
+         <p :style="{fontSize:font}">{{msg}}</p>
+         <!-- 拼接单位 -->
+         <p :style="{fontSize: Size + 'px'}">{{msg}}</p>
+     </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                msg:'动态绑定样式',
+                font:'250px',
+                Size:'100'
+            }
+        })
+    </script>
+</body>
+</html>

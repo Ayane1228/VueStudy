@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{fullName}}</h1>
+    </div>
+</body>
+</html>
+<script src="../01hello，VUE/vue.min.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            firstName:'Sakura',
+            secondName:'Ayane'
+        },
+        // 计算属性 在里面定义函数（其实是一个属性）（不过这是一个语法糖，以后会展开），在上面使用的时候不需要加（）
+        computed: {
+            fullName:function(){
+                return this.firstName + " " + this.secondName;
+            }
+        },
+    })
+</script>

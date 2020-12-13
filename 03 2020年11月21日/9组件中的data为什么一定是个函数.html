@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计数器案例</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+        <cpn></cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <h1>总数：{{totality}}</h1>
+            <button @click='add'>+</button>
+            <button @click='sub'>-</button>
+        </div>
+    </template>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        Vue.component('cpn',{
+            template:'#cpn',
+            data(){
+                return {
+                    totality: 0
+                }
+            },
+            methods:{
+                add:function(){
+                    this.totality++;
+                },
+                sub(){
+                    this.totality--;
+                }
+            }
+        })
+        const app = new Vue({
+            el: '#app',
+            data: {
+                totality: 0
+            },
+            methods: {
+            },
+        })
+    </script>
+</body>
+
+</html>

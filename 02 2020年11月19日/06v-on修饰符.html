@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        v-bind：修饰符 ：click.+修饰符
+        .stop：阻止事件冒泡
+        .prevent 组织默认事件（a标签跳转 
+        input type="submit"提交数据不希望自动提交数据而是调用我们自己定义的函数（验证表单数据）如（@click=function（）））
+        .keyCode|keyAlias 可以监听键盘事件（键盘编码或键盘简写）
+        .once 只会触发一次回调函数
+    -->
+    <div id="app">
+        <div @click="divEvent">
+            <p :style="{color:color}">绑定属性</p>
+            <!-- <button @click="stopEvent">{{stop}} 阻止事件冒泡</button> 未阻止事件冒泡 -->
+            <button @click.stop="stopEvent">{{stop}}已阻止事件冒泡</button>
+        </div>
+    </br>
+        <form action="baoidu.com">
+            <!-- <button type="submit">{{prevent}}阻止默认事件</button> 未阻止默认事件 -->
+            <button @click.prevent='prevntEvent'>{{prevent}}阻止默认事件</button>
+        </form>
+    </br>
+            <!-- .keyCode|keyAlias 可以监听键盘事件（键盘编码或键盘简写） -->
+            <input @keyup.enter="keyupEvent" type="text" placeholder="键盘事件">
+    </br>
+    </br>
+            <!-- .once 只会触发一次回调函数 -->
+            <button @click.once="clickEvent">{{once}}只能按一次</button>
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                color:'red',
+                stop:'stop',
+                prevent:'prevent',
+                key:'key',
+                once:'once'
+            },
+            methods: {
+                divEvent:function(){
+                    console.log('divEvent');
+                },
+                stopEvent:function(){
+                    console.log('stop');
+                },
+                prevntEvent:function(){
+                    console.log('阻止默认事件');
+                },
+                keyupEvent:function(){
+                    console.log('键盘事件');
+                },
+                clickEvent:function(){
+                    console.log('once');
+                }
+            },
+            computed:{
+                
+            }
+        })
+    </script>
+   
+</body>
+</html>

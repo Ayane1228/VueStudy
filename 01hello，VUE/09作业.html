@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 作业需求 点击列表中的某项，某项变红 -->
+<!-- 
+    获取点击的li的index值
+    index值对应的li的class变为red，其他的li去掉red类名
+ -->
+<style>
+    .active{
+        color: red;
+    }
+</style>
+<body>
+    <!-- 
+            current == index 当前的索引值与点击的索引值相同 => true =>red:true 添加类名 =>变红
+     -->
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in movie" :class="{'active':current==index}"  @click="click(index)">
+                {{index}}-----------{{item}}
+            </li>
+        </ul>
+    </div>
+</div> 
+</body>
+</html>
+<script src="../01hello，VUE/vue.min.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            current:0,
+            movie:['电影1','电影2','电影3','电影4']
+        },
+        methods:{
+            click: function(num){
+                // 获得了index值 给形参num 再将num的值给current 再给current的值（点击的li）与index值（对应的li）变红
+               this.current = num;
+            }
+        }
+    })
+</script>

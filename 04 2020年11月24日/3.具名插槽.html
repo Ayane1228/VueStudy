@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn>
+            <slot>
+                <button>按钮</button>
+            </slot>
+        </cpn>
+        <cpn>
+            <slot name='chacao'>
+                <p>具名插槽</p>
+            </slot>
+        </cpn>
+        <cpn></cpn>
+        <cpn></cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <slot></slot>
+            <p>本身内容</p>
+            <slot name='chacao'></slot>
+        </div>
+    </template>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                msg:"msg"
+            },
+            components:{
+                cpn:{
+                    template:'#cpn'
+                }
+            }
+        })
+    </script>
+   
+</body>
+</html>

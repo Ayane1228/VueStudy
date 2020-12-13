@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 单选框v-model绑定的是一个布尔值 -->
+        <label class="" for="argee">
+            <input type="checkbox" name="" id="argee" v-model='isArgee'>是否同意此协议
+            </br>
+            </br>
+            <button :disabled='!isArgee'>下一步</button>
+        </label>
+        </br>
+        </br>
+        </br>
+        </br>
+        <!-- 复选框绑定是一个数组 -->
+        <input type="checkbox" name="" id="" v-model='hobby' value="足球">足球
+        <input type="checkbox" name="" id="" v-model='hobby' value="篮球">篮球
+        <input type="checkbox" name="" id="" v-model='hobby' value="羽毛球">羽毛球
+        <input type="checkbox" name="" id="" v-model='hobby' value="乒乓球">兵乓球
+        <input type="checkbox" name="" id="" v-model='hobby' value="看球">看球
+        <h1>您的爱好是：{{hobby}}</h1>
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                msg: "msg",
+                isArgee: false,
+                hobby: []
+            },
+            methods: {
+
+            },
+            computed: {
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

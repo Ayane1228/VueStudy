@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = [10,20,30,45,778,1231,45,321213,45];
+        // 使用filter函数进行判断100以下的数字并保存为新数组
+        // filter中的回调函数只有一个要求 返回值必须是布尔值
+        // 返回值是true时：将值保持到一个新数组中
+        // 返回值是false时：函数内部会过滤这个数字
+        let newArr = arr.filter(function(n){
+            return n < 100 ;
+        })
+        console.log(newArr);
+        // 将所有大于100的值*2并保存为新的数组
+        // map函数：回掉函数中返回的值会作为新的数组
+        let mapArr = newArr.map(function(n){
+            return n*2;
+        })
+        console.log(mapArr);
+        // 将所有的数组的值相加
+        // reduce函数 对数组中的所有值进行汇总 
+        let reduceArr = mapArr.reduce(function(pre,n){
+            return pre + n;
+        },0)
+        console.log(reduceArr);
+
+        let Arr = arr.filter(n => n<100).map(n => n*2).reduce((pre,n) => pre + n);
+        console.log(Arr);
+    </script>
+</body>
+</html>

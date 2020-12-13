@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 点击按钮切换v-if 和 v-else 通过定义一个值来进行判断 
+        v-if 和 v-else之间不能有其他代码
+    -->
+    <div id="app">
+        <h1 v-if='isUser'>true</h1>
+        <h1 v-else>false</h1>
+        <span v-if='isUser'>
+           <label for="name">账号登陆</label> 
+            <input type="text" placeholder="账号登陆" id="name" >
+             <button @click="isUser = !isUser">切换登陆方式</button>
+        </span>
+        <span v-else>
+            <label for="email">邮箱登陆</label> 
+            <input type="text" placeholder="邮箱登陆" id="email" >
+            <button @click="isUser = !isUser">切换登陆方式</button>
+        </span>
+    </br>
+    </br>
+        <!-- <button @click="isUser = !isUser">切换登陆方式</button> -->
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                msg:"msg",
+                isUser:true
+            },
+            methods: {
+                
+            },
+            computed:{
+
+            }
+        })
+    </script>
+   
+</body>
+</html>

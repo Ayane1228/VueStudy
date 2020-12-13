@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn>
+            <slot></slot>
+        </cpn>
+        <cpn>
+            <!-- 获取子组件中的planguages -->
+            <template slot-scope="slot">
+                <span v-for='item in slot.data'>{{item}}--</span>
+            </template>
+        </cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <!-- 给插槽定义一个属性  -->
+            <slot :data='planguages'>
+                <ul>
+                    <li v-for='item in planguages'>{{item}}</li>
+                </ul>
+            </slot>
+        </div>
+    </template>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                msg:"msg"
+            },
+            components:{
+                cpn:{
+                    template:"#cpn",
+                    data(){
+                        return{
+                             planguages:['c','c++','javascript','go','swift']
+                    }
+                }
+                }
+            }
+        })
+    </script>   
+</body>
+</html>

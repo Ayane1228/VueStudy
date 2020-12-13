@@ -1,0 +1,52 @@
+<!-- 
+    父组件=>子组件：props方法
+    子组件=>父组件：调用方法
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+     <!-- 使用父组件 -->
+     <div id="app">
+         <!-- 使用子组件 ，子组件的cmsg来自父组件的props方法传递过来 -->
+        <cpn :cmsg="msg" :cmovies="movies"></cpn>
+     </div>
+     <template id="cpn">>
+        <div>
+             {{cmsg}}
+             <ul>
+                 <li v-for='item in cmovies'>{{item}}</li>
+             </ul>
+         </div>
+     </template>
+     <script src="../01hello，VUE/vue.min.js"></script>
+     <script>
+         //创建子组件
+         const cpn = {
+            //挂载模板 
+            template:'#cpn',
+            //props方法接受父组件传递的内容
+            props:['cmsg','cmovies'],
+         }
+         //创建父组件（根组件）
+        const app = new Vue({
+            //挂载
+             el:'#app',
+             //创建父组件的数据
+             data:{
+                 msg:"123",
+                 movies:['偶像大师765','偶像大师星光舞台','偶像大师sideM']
+             },
+             //创建子组件
+             components: {
+                 cpn
+             }
+         })
+     </script>
+    
+ </body>
+ </html>

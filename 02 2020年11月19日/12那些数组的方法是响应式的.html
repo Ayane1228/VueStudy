@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,key) in arr">{{item}} + {{key}}</li>
+        </ul>
+        <button @click="btn">按钮</button>
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                arr:["A","B","C","f","F","D"]
+            },
+            methods: {
+                btn(){
+                // push方法，可以一次添加多个元素
+                // return this.arr.push('E');
+                // 通过索引值修改数组元素   这个不是响应式
+                // return this.arr[0] = "0";
+                // pop:删除数组最后一个元素 响应式
+                // return this.arr.pop();
+                // shift：删除第一个元素 响应式
+                // return this.arr.shift();
+                // unshift：在数组最前面添加元素 可以一次添加多个元素
+                // return this.arr.unshift('0','1');
+                // splic（start，元素个数【不传就删除所有元素】，替换的元素）
+                // sort 排序 默认从小到大
+                // return this.arr.sort();
+                // reversr 反转
+                    return this.arr.reversr();
+
+                }
+
+            },
+            computed:{
+                
+            }
+        })
+    </script>
+   
+</body>
+</html>

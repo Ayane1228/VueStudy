@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn></cpn>
+        <cpn ref='ref'></cpn>
+        <button @click='btnClick()'>按钮</button>
+    </div>
+    <template id="cpn">
+        <div>
+            我是子组件
+        </div>
+    </template>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                msg:"msg"
+            },
+            methods: {
+                btnClick(){
+                    console.log(this.$children);
+                    this.$children[0].showmsg();
+                    console.log(this.$refs.ref);
+                    this.$refs.ref.showmsg();
+                }
+            },
+            components:{
+                cpn:{
+                    template:'#cpn',
+                    methods: {
+                        showmsg(){
+                            console.log("showmessage");
+                        }
+                    },
+                }
+            }
+        })
+    </script>
+   
+</body>
+</html>

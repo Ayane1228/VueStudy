@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 
+            在遍历对象的过程，如果只是获取一个值，只会获取到value
+         -->
+        <ul>
+            <li v-for='item in test'>{{item}}</li>
+        <!-- 
+            同时获取到key和value
+        -->
+            <li v-for='(item,key) in test'>{{key}} + {{item}}</li>
+    </ul>
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                test: {
+                    name: 'SakuraAyane',
+                    age: '28',
+                    skill: 'sing'
+                }
+            },
+            methods: {
+
+            },
+            computed: {
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用组件 -->
+        <mycon></mycon>>
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+            // 创建组件构造器
+            const con = Vue.extend({
+                template:`
+                <div>
+                    <h1>我是组件构造器，</h1>
+                    <h1>我是组件</h1>    
+                </div>
+                `    
+            });
+            // 注册组件 第一个参数 组件名 第二个参数 组件构造器名
+            Vue.component('mycon',con);
+            const app = new Vue({
+                el:'#app'
+            })
+
+        
+    </script>
+   
+</body>
+</html>

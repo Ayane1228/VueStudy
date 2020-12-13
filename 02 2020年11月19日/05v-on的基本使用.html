@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{num}}</h1>
+        <button @click="increase">+</button>
+        <button @click="decrease">-</button>
+        <!-- 正常传入参数 会将参数传给函数的形参-->
+        <button @click="testItem('12我阿斯顿3')">{{test}}0</button>
+        <!-- 不写()且定义的方法中需要这个参数则会返回event对象 -->
+        <button @click="testItem">{{test}}1</button>
+        <!-- 写()不写参数且定义的方法中需要这个参数则会报错 -->
+        <button @click="testItem()">{{test}}2</button>
+        <!-- 当既需要传入参数又需要获取event对象时可以使用 $event -->
+        <button @click="testItem('佐仓绫音',$event)">{{test}}3</button>
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                num:0,
+                test:'测试内容'
+            },
+            methods: {
+                increase:function(){
+                    return this.num++;
+                },
+                decrease:function(){
+                    return this.num--;
+                },
+                testItem:function(item,event){
+                    console.log(item,event);
+                }
+
+            },
+            computed:{
+                
+            }
+        })
+    </script>
+   
+</body>
+</html>

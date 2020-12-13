@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        ES5中的var没有块级作用域 E6中的let是有块级作用域的比如 if 和 for
+        const：定义常量 推荐使用 一旦给constc'修饰的标识符被赋值之后就不能修改 在定义的时候必须赋值 
+        常量的含义是指向的对象不能修改，（内存地址不能修改）
+        但是可以修改对象内部对应的属性（不会修改内存地址）
+        JS中函数有作用域，没有块级作用域
+        let有块级作用域 
+            if中：没有块级作用域会引起的问题：属性可以重复修改
+            for 遍历之后定义的变量会一直被改变
+        -->
+    <!-- var没有块级作用域 -->
+    <div id="app">
+        <h1></h1>
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        // const app = new Vue({
+        //     el:'#app',
+        //     data:{
+
+        //     },
+        //     methods: {
+                
+        //     },
+        //     computed:{
+                
+        //     }
+        // })
+        var name = "SakuraAyane";//这条不写也不会报错
+        function abc(name){
+            // 这里的形参可以写任何字符串都不会和外面发生冲突，因为这个函数有自己的作用域
+            console.log(name);
+        };
+        name = "123456";
+        abc("asdasdsa");//只有这里的name穿给了函数中的形参name，不会受外面所定义的变量的印象
+    </script>
+   
+</body>
+</html>

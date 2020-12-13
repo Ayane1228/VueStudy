@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 可以使用if else-if else进行判断 但不推荐在标签内进行判断 -->
+    <div id="app">
+        <h1 v-if="score>89">优秀</h1>
+        <h1 v-else-if="score>79">良好</h1>
+        <h1 v-else-if="score>59">及格</h1>
+        <h1 v-else>不及格</h1>
+    </div>
+    <!-- 推荐在computed中进行判断 -->
+    <div id="show">
+        <!-- 这里应填计算属性 而不是写函数的返回值 -->
+        <h1>{{show}}</h1>
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                score:0
+            },
+            methods: {
+                
+            },
+            computed:{
+                
+            }
+        });
+        const show = new Vue({
+            el:'#show',
+            data:{
+                score:60
+            },
+            computed:{
+                show(){
+                    let msg = '';
+                    if(this.score >= 90){
+                        msg = '优秀'
+                    }else if(this.score >= 80){
+                        msg = '良好'
+                    }else if(this.score >= 60){
+                        msg = '及格'
+                    }else{
+                        msg = '不及格'
+                    }
+                return msg;
+                }
+            }
+        })
+    </script>
+   
+</body>
+</html>

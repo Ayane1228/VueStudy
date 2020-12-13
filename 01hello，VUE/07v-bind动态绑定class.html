@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        v-bind可以动态绑定类名
+        可以绑定一个是对象的类名(键值对)，例： <div> :class="{类名1：布尔值}"</div>
+        在data中也可以定义布尔值的名字，这样可以动态绑定类名是true还是false
+        例子(设置app.istrue=false => 这就能够去掉原类名isTrue)
+        用处：  开发时，有时需要添加类名，有时不需要
+                比如：鼠标移动到上面的时候添加类名，移开的时候移除类名
+        例：点击按钮 字体颜色变化
+     -->
+    <style>
+    .active{
+        color:red;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1 :class="{active:isActive}">{{msg}}</h1>
+        <button @click='btnClick()'>按钮</button>
+    </div>
+</body>
+</html>
+<script src="../01hello，VUE/vue.min.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            msg:'Hello World',
+            isActive:true
+        },
+        methods: {
+            // methods是Vue的一个属性 其中的值是methods创建的方法
+            // 点击之后了 isActive取反
+            btnClick:function(){
+                this.isActive = !this.isActive
+            }
+        },
+    })
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            [v-cloak]{
+                display:none;
+            }    
+            [attribute~=value] 选择器用于选取属性值中包含指定词汇的元素。
+            选取所有带v-cloak属性的元素
+         */
+        [v-cloak] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- V-once 只渲染一次 不会随数据的变化而变化 -->
+    <!-- V-html 将数据格式解析为html格式 -->
+    <!-- V-pre 原封不动地展示数据  -->
+    <!-- V-cloak   cloak:斗篷 
+        在Vue解析之前 div中有一个属性cloak 解析之后就没有有了这个属性cloak 
+        配合display：none属性使用可以让用户在js加载之前看不到这个属性
+    -->
+    <div id="app">
+        <h2 v-once>{{message}}</h2>
+        <h2 v-html="url">{{url}}</h2>
+        <h2 v-pre>{{url}}</h2>
+    </div>
+    <h2 id="vue" v-cloak>{{cloak}}</h2>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'V-once',
+                url: "<a href='www.baidu.com'>百度一下</a>",
+                clock: 'cloak'
+            }
+        });
+        const vue = new Vue({
+            el:'#vue',
+            data:{
+                cloak:'v-cloak'
+            }
+        })
+    </script>
+</body>
+
+</html>

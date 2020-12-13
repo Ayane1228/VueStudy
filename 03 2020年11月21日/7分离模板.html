@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1></h1>
+        <template id="tem">
+            <h1>这是一个模板</h1>
+        </template>
+        <my-con></my-con>
+        <my-con></my-con>
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+
+            el:'#app',
+            components:{
+                'my-con':{
+                    template:'#tem'
+                }
+            },
+            data:{
+                msg:"msg"
+            },
+            methods: {
+                
+            },
+            computed:{
+                
+            }
+        })
+    </script>
+   
+</body>
+</html>

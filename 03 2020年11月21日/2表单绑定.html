@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model='msg'>
+        <h1>{{msg}}</h1>
+        <textarea name="" id="" cols="30" rows="10" v-model='textarea'></textarea>
+        <h1>{{textarea}}</h1>
+    </br>
+        <!-- 原理 -->
+        <input type="text" :value='yuanli' @input="yuanli=$event.target.value">
+        <h1>{{yuanli}}</h1>
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                msg:"msg",
+                textarea:'textarea',
+                yuanli:'原理'
+            },
+            methods: {
+                
+            },
+            computed:{
+                
+            }
+        })
+    </script>
+   
+</body>
+</html>

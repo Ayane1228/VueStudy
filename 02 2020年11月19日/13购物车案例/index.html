@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车案例</title>
+    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>图书购物车</h1>
+        <div v-if='this.books.length'>
+            <table>
+                <thead>
+                    <th></th>
+                    <th>书籍名称</th>
+                    <th>出版日期</th>
+                    <th>价格</th>
+                    <th>购买数量</th>
+                    <th>操作</th>
+                </thead>
+                <tbody>
+                    <tr v-for='(item,index) in books'>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.data}}</td>
+                        <td>{{item.price | showPrice}}</td>
+                        <td>
+                            <button @click=decrease(index) :disabled='item.count < 1'>-</button>
+                            {{item.count}}
+                            <button @click=increase(index)>+</button>
+                        </td>
+                        <td>
+                            <button @click=remove(index)>移除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <h1>总价格为:{{totalPrice | showPrice}}</h1>
+                    </tr>
+                </tbody>
+        </table>
+        </div>
+        <div v-else>
+            <h1>购物车为空</h1>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            msg:'test',
+            books:[
+                {
+                    id:1,
+                    name:'秒速五厘米',
+                    data:'2020-9',
+                    price:200.122,
+                    count:1
+                },
+                {
+                    id:2,
+                    name:'言叶之庭',
+                    data:'2020-9',
+                    price:200.12,
+                    count:1
+                },
+                {
+                    id:3,
+                    name:'天气之子',
+                    data:'2020-9',
+                    price:200.45,
+                    count:1
+                },                
+                {
+                    id:4,
+                    name:'我们的蓝',
+                    data:'2020-9',
+                    price:200.66,
+                    count:1
+                }
+            ]
+        },
+        methods: {
+            decrease(index){
+                return this.books[index].count--;
+            },
+            increase(index){
+                return this.books[index].count++;
+            },
+            remove(index){
+                this.books.splice(index,1)
+            }
+        },
+        // filters 过滤器
+        filters:{
+            // toFixed()四舍五入保留小数
+            showPrice(price){
+                return "$" + price.toFixed(2)
+            }
+        },
+        computed: {
+            totalPrice(){
+                let totalPrice = 0;
+                // 普通if
+                // for(let i=0; i<this.books.length;i++){
+                //     totalPrice += this.books[i].price * this.books[i].count;
+                // }
+                // in 这里i获取到的是index值（books[i]中的i）
+                // for(let i in this.books){
+                //     totalPrice += this.books[i].price * this.books[i].count;
+                // }
+                // of 这里获取到的是数组中的每个元素值 book = books[i]
+                for(let book of this.books){
+                    totalPrice += book.price * book.count;
+                }
+                return totalPrice;
+            }
+        },
+        
+    })
+</script>

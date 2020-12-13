@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.lazy修饰符
+            失去焦点或回车之后才会显示改变的数据
+        2.number修饰符
+            v-model给变量赋值时都是字符串类型
+            number：使输入的值都变成number类型（防止需要类型转换的情况）
+        3.trim：去除空格      
+     -->
+     
+    <div id="app">
+        <input type="text" v-model.lazy='lazy'>
+        <h1>{{lazy}}</h1>
+</br>
+</br>
+        <input type="text" v-model.number='number'>
+        <h1>{{number}}</h1>
+    </br>
+</br>
+        <input type="text" v-model.trim='trim'>        
+        <h1>{{trim}}</h1>
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                msg:"msg",
+                lazy:'lavy',
+                number:'123123',
+                trim:''
+            },
+            methods: {
+                
+            },
+            computed:{
+                
+            }
+            
+        })
+        
+    </script>
+   
+</body>
+</html>

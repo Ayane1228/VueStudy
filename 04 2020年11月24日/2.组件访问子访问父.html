@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cpn></cpn>
+        <ccpn></ccpn>
+    </div>
+    <template id="cpn">
+        <div>
+            我是子组件
+            <button @click='parent'>访问父组件</button>
+        </div>
+    </template>
+    <template id="ccpn">
+        <div>
+            这是子组件的子组件
+            <button @click='root'>访问根组件</button>
+        </div>
+    </template>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                msg:"msg"
+            },
+            methods: {
+            },
+            components:{
+                cpn:{
+                    template:'#cpn',
+                    methods: {
+                        parent(){
+                            console.log(this.$parent.msg);
+                        }
+                    },
+                    components:{
+                        ccpn:{
+                            template:'#ccpn',
+                            methods: {
+                                root(){
+                                    console.log(this.$root)
+                            }
+                        },
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+   
+</body>
+</html>

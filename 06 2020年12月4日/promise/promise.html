@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=Spawn, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    new Promise((resolve,reject)=>{
+        // 第一次异步请求的代码
+        setTimeout(()=>{
+            resolve()
+        },1000)
+    }).then(() =>{
+    //    第一次异步请求的处理代码
+        console.log("第一次异步请求的结果");
+        console.log("第一次异步请求的结果");
+        console.log("第一次异步请求的结果");
+        console.log("第一次异步请求的结果");
+        console.log("第一次异步请求的结果");
+    // 返回值为第二使用promise
+        return new Promise((resolve,reject)=>{
+            //第二次的网络请求
+            setTimeout(()=>{
+                resolve()
+            },1000)
+        }).then(() =>{
+            // 第二次的处理函数
+            console.log("第二次异步请求的结果");
+            console.log("第二次异步请求的结果");
+            console.log("第二次异步请求的结果");
+            console.log("第二次异步请求的结果");
+            console.log("第二次异步请求的结果");
+            // 第三次使用promise
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    resolve()
+                },1000)
+            }).then(()=>{
+            // 第三次的处理函数
+            console.log("第三次异步请求的结果");
+            console.log("第三次异步请求的结果");
+            console.log("第三次异步请求的结果");
+            console.log("第三次异步请求的结果");
+            console.log("第三次异步请求的结果");
+            })
+        })
+    })
+</script>
+</html>

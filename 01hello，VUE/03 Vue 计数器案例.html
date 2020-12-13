@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计数器案例</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>总数：{{totality}}</h1>
+        <button @click='add'>+</button>
+        <button @click='sub'>-</button>
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        const app = new new Vue({
+            el: '#app',
+            data: {
+                totality: 0
+            },
+            methods: {
+                add: function () {
+                    this.totality++;
+                },
+                sub: function () {
+                    this.totality--;
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

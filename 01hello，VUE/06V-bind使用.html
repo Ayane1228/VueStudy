@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        v-bind可以动态绑定元素的属性
+        属性不能使用{{}}的内容 ，因为{{}}是使用在元素的内部的:<div>{{。。。。。}}</div>
+        在要绑定的属性前面加上v-bind 简写就是 ：属性='data' 
+     -->
+    <div id="app">
+        <img :src="url" alt="" srcset="">
+    </div>
+    <script src="../01hello，VUE/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                // 通常有些动态数据会从服务器获得之后会先放到data中再动态绑定到dom元素上
+                url:'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1306210689,4216952412&fm=26&gp=0.jpg'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- mustache语法中不仅可以直接写变量，也可以写简单表达式 -->
+        <h1>{{name + '' + secondName}}</h1>
+        <h3>{{name}} 拼接 {{secondName}}</h3>
+        <h2>{{age}}</h2>
+        <h2>{{age*2}}</h2>
+    </div>
+<script src="../01hello，VUE/vue.min.js"></script>
+<script>
+    const app = new Vue({
+        el:"#app",
+        data:{
+            title:'Mustache语法',
+            name:'Java',
+            secondName:'script',
+            age:'250'
+        }
+    })
+</script>
+</body>
+</html>
