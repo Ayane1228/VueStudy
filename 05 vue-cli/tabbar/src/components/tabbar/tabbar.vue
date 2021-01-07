@@ -1,4 +1,4 @@
-<template>
+<template v-s>
     <div>
         <div id="tab-bar">
             <slot></slot>
@@ -10,7 +10,7 @@ export default {
 
 }
 </script>
-<style lang="">
+<style>
     #tab-bar{
         display:flex;
         background: #f6f6f6;
